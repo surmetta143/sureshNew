@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Simple Website</title>
-
-  <!-- Font Awesome for Icons -->
+  <meta charset="UTF-8" />
+  <title>Suresh Software Skills</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -128,6 +125,41 @@
       color: green;
     }
 
+    #course-details {
+      display: none;
+      margin-top: 30px;
+    }
+
+    #course-details img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    #course-title {
+      color: #0077cc;
+      margin-top: 15px;
+    }
+
+    #course-fee {
+      font-weight: bold;
+    }
+
+    #course-link {
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    #ceo-section img {
+      max-width: 180px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
     footer {
       background-color: #f1f1f1;
       padding: 20px;
@@ -139,78 +171,32 @@
       font-size: 28px;
       cursor: pointer;
     }
-
-    .form-popup {
-      display: none;
-      position: fixed;
-      top: 20%;
-      left: 35%;
-      padding: 20px;
-      border: 1px solid #888;
-      background-color: white;
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-    }
-
-    .form-container input {
-      width: 100%;
-      padding: 10px;
-      margin: 6px 0 12px;
-      border: 1px solid #ccc;
-    }
-
-    .form-container button {
-      width: 100%;
-      padding: 10px;
-      background-color: #4285F4;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .form-container button:hover {
-      background-color: #357ae8;
-    }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.3);
-      z-index: 999;
-    }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Burger Menu Icon -->
-    <div class="menu-icon" onclick="toggleBurgerMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="menu-icon" onclick="alert('Burger menu clicked!')">
+      <div></div><div></div><div></div>
     </div>
 
     <h1>Welcome to Suresh Software Skills Learning</h1>
 
     <nav>
       <a href="#home">Home</a>
-      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()" id="Courses">Courses</a>
+      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()">Courses</a>
     </nav>
 
-    <!-- Auth Buttons -->
     <div class="auth-buttons-header">
-      <button onclick="openForm('login')" id="login">Login</button>
-      <button onclick="openForm('signup')" id="sign up">Sign Up</button>
+      <button onclick="alert('Login form here')">Login</button>
+      <button onclick="alert('Signup form here')">Sign Up</button>
     </div>
 
-    <!-- Courses Dropdown -->
     <div id="coursesDropdown" class="courses-dropdown">
-      <label><input type="radio" name="course" id="azure devops" value="Web Development">Azure Devops</label>
-      <label><input type="radio" name="course" id="Javascript" value="JavaScript">Automation Testing with python</label>
-      <label><input type="radio" name="course" value="CSS">Automation Tetsing with java</label>
-      <label><input type="radio" name="course" value="React">API Testing</label>
+      <label><input type="radio" name="course" value="Azure DevOps"> Azure DevOps</label>
+      <label><input type="radio" name="course" value="Automation Testing with Python"> Automation Testing with Python</label>
+      <label><input type="radio" name="course" value="Automation Testing with Java"> Automation Testing with Java</label>
+      <label><input type="radio" name="course" value="API Testing"> API Testing</label>
       <button onclick="selectCourse()">Select</button>
     </div>
   </header>
@@ -219,42 +205,35 @@
     <section id="home">
       <h2>Hello, I'm Suresh!</h2>
       <p>This is a place where all skills are trained with practical examples.</p>
+
+      <!-- CEO Section -->
+      <div id="ceo-section" style="margin-top: 40px;">
+        <img src="Screenshot 2025-07-01 234315.png" alt="Suresh Metta" />
+        <h3 style="margin-top: 15px;">Suresh Metta</h3>
+        <p style="font-size: 16px; max-width: 600px; margin: 0 auto;">
+          I’m the Founder and CEO of Suresh Software Skills Learning. With over 7 years of experience in
+          <strong>Software Testing, Development, and DevOps</strong>, I help learners gain real-world skills through practical, hands-on examples.
+        </p>
+      </div>
+
       <div id="selected-course"></div>
+
+      <div id="course-details">
+        <img id="course-image" src="" alt="Course Image">
+        <div>
+          <h3 id="course-title"></h3>
+          <p id="course-fee"></p>
+          <a id="course-link" href="#" target="_blank">Learn More</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <a href="https://www.youtube.com" target="_blank" title="YouTube">
-      <i class="fab fa-youtube" style="color: #FF0000;"></i>
-    </a>
-    <a href="https://www.facebook.com" target="_blank" title="Facebook">
-      <i class="fab fa-facebook" style="color: #1877f2;"></i>
-    </a>
+    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube" style="color: #FF0000;"></i></a>
+    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook" style="color: #1877f2;"></i></a>
     <p style="margin-top: 10px;">&copy; 2025 Suresh Metta</p>
   </footer>
-
-  <!-- Login Form -->
-  <div id="loginForm" class="form-popup">
-    <h3>Login</h3>
-    <div class="form-container">
-      <input type="text" id="loginUsername" placeholder="Username">
-      <input type="password" id="loginPassword" placeholder="Password">
-      <button onclick="submitLogin()">Submit</button>
-    </div>
-  </div>
-
-  <!-- Signup Form -->
-  <div id="signupForm" class="form-popup">
-    <h3>Signup</h3>
-    <div class="form-container">
-      <input type="text" id="signupName" placeholder="Full Name">
-      <input type="email" id="signupEmail" placeholder="Email">
-      <input type="password" id="signupPassword" placeholder="Password">
-      <button onclick="submitSignup()">Register</button>
-    </div>
-  </div>
-
-  <div id="overlay" class="overlay" onclick="closeForms()"></div>
 
   <script>
     function toggleCoursesDropdown() {
@@ -264,54 +243,51 @@
 
     function selectCourse() {
       const selected = document.querySelector('input[name="course"]:checked');
+
+      const courseMap = {
+        "Azure DevOps": {
+          title: "Azure DevOps",
+          fee: "₹17000 INR",
+          image: "https://source.unsplash.com/featured/?cloud,devops",
+          link: "https://learn.microsoft.com/en-us/azure/devops/"
+        },
+        "Automation Testing with Python": {
+          title: "Automation Testing with Python",
+          fee: "₹17000 INR",
+          image: "https://source.unsplash.com/featured/?python,testing",
+          link: "https://realpython.com/learning-paths/automation-testing/"
+        },
+        "Automation Testing with Java": {
+          title: "Automation Testing with Java",
+          fee: "₹17000 INR",
+          image: "https://source.unsplash.com/featured/?java,automation",
+          link: "https://www.udemy.com/course/selenium-real-time-examplesinterview-questions/"
+        },
+        "API Testing": {
+          title: "API Testing",
+          fee: "₹17000 INR",
+          image: "https://source.unsplash.com/featured/?api,testing",
+          link: "https://www.postman.com/"
+        }
+      };
+
       if (selected) {
-        document.getElementById("selected-course").textContent = "You selected: " + selected.value;
+        const courseName = selected.value;
+        const course = courseMap[courseName];
+
+        document.getElementById("selected-course").textContent =
+          "Thank you for choosing the course. Please find fee structure for selected course:";
+
+        document.getElementById("course-title").textContent = course.title;
+        document.getElementById("course-fee").textContent = "Fee: " + course.fee;
+        document.getElementById("course-image").src = course.image;
+        document.getElementById("course-link").href = course.link;
+
+        document.getElementById("course-details").style.display = "block";
         document.getElementById("coursesDropdown").style.display = "none";
       } else {
         alert("Please select a course.");
       }
-    }
-
-    function openForm(formType) {
-      document.getElementById("overlay").style.display = "block";
-      if (formType === 'login') {
-        document.getElementById("loginForm").style.display = "block";
-      } else {
-        document.getElementById("signupForm").style.display = "block";
-      }
-    }
-
-    function closeForms() {
-      document.getElementById("overlay").style.display = "none";
-      document.getElementById("loginForm").style.display = "none";
-      document.getElementById("signupForm").style.display = "none";
-    }
-
-    function submitLogin() {
-      const username = document.getElementById("loginUsername").value;
-      const password = document.getElementById("loginPassword").value;
-      if (username && password) {
-        alert("✅ Login successful for: " + username);
-        closeForms();
-      } else {
-        alert("❌ Please enter both username and password.");
-      }
-    }
-
-    function submitSignup() {
-      const name = document.getElementById("signupName").value;
-      const email = document.getElementById("signupEmail").value;
-      const password = document.getElementById("signupPassword").value;
-      if (name && email && password) {
-        alert("✅ Signup successful for: " + name);
-        closeForms();
-      } else {
-        alert("❌ Please fill in all fields.");
-      }
-    }
-
-    function toggleBurgerMenu() {
-      alert("🍔 Burger menu clicked! Add navigation logic here.");
     }
   </script>
 
