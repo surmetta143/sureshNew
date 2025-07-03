@@ -192,7 +192,7 @@
     <h1>Welcome to Suresh Software Skills Learning</h1>
     <nav>
       <a href="#home">Home</a>
-      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()">Courses</a>
+      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()" id="Courses">Courses</a>
     </nav>
     <div class="auth-buttons-header">
       <button onclick="openForm('login')">Login</button>
@@ -200,10 +200,10 @@
     </div>
     <div id="coursesDropdown" class="courses-dropdown">
       <label><input type="radio" name="course" value="Azure DevOps"> Azure DevOps</label>
-      <label><input type="radio" name="course" value="Automation Testing with Python"> Automation Testing with Python</label>
+      <label><input type="radio" name="course" value="Automation Testing with Python" id="Automation Testing with python"> Automation Testing with Python</label>
       <label><input type="radio" name="course" value="Automation Testing with Java"> Automation Testing with Java</label>
       <label><input type="radio" name="course" value="API Testing"> API Testing</label>
-      <button onclick="selectCourse()">Select</button>
+      <button onclick="selectCourse()" id="select button">Select</button>
     </div>
   </header>
 
