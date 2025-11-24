@@ -31,6 +31,49 @@
       background-color: white;
       margin: 4px 0;
     }
+
+    /* 🔥 Three Dots Icon */
+    .three-dots {
+      position: absolute;
+      left: 60px;
+      top: 22px;
+      font-size: 22px;
+      cursor: pointer;
+      color: white;
+
+    }
+
+    /* 🔥 Three Dots Dropdown */
+    .three-dot-dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      background: white;
+      color: black;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      width: 180px;
+      z-index: 2000;
+      text-align: left;
+    }
+
+    .three-dot-dropdown select,
+    .three-dot-dropdown button {
+      width: 100%;
+      padding: 6px;
+      margin-top: 8px;
+    }
+
+    .three-dot-dropdown button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
     nav {
       display: inline-block;
       margin-top: 10px;
@@ -183,37 +226,58 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    <div class="menu-icon" id="Menu Icon"onclick="alert('Burger menu clicked!')">
+    <div class="menu-icon" onclick="alert('Burger menu clicked!')">
       <div></div><div></div><div></div>
     </div>
-    <h1>Welcome to SNC Software Solutions</h1>
-    <nav>
-      <a href="#home" id="Home">Home</a>
-      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()" id="Courses">Courses</a>
-    </nav>
-    <div class="auth-buttons-header">
-        <!-- <button onclick="openForm('More')" id="More">More</button>    -->
-  <button onclick="openForm('login')" id="login button">Login</button>     
-      <button onclick="openForm('signup')" id="Sign Up button">Sign Up</button>
+
+    <!-- 🔥 Three Dots Icon -->
+    <div class="three-dots" onclick="toggleThreeDotDropdown()">
+      <i class="fa-solid fa-ellipsis-vertical"></i>
     </div>
+
+    <!-- 🔥 Dropdown beside three dots -->
+    <div id="threeDotDropdown" class="three-dot-dropdown">
+      <label>Select Course:</label>
+      <select id="threeDotSelect">
+        <option value="">-- Choose --</option>
+        <option value="Azure DevOps">Azure DevOps</option>
+        <option value="Automation Testing with Python">Automation Testing with Python</option>
+        <option value="Automation Testing with Java">Automation Testing with Java</option>
+        <option value="API Testing">API Testing</option>
+      </select>
+      <button onclick="selectThreeDotCourse()">Select</button>
+    </div>
+
+    <h1>Welcome to SNC Software Solutions</h1>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="javascript:void(0);" onclick="toggleCoursesDropdown()">Courses</a>
+    </nav>
+
+    <div class="auth-buttons-header">
+      <button onclick="openForm('login')">Login</button>
+      <button onclick="openForm('signup')">Sign Up</button>
+    </div>
+
     <div id="coursesDropdown" class="courses-dropdown">
       <label><input type="radio" name="course" value="Azure DevOps"> Azure DevOps</label>
-      <label><input type="radio" name="course" value="Automation Testing with Python" id="Automation Testing with python"> Automation Testing with Python</label>
+      <label><input type="radio" name="course" value="Automation Testing with Python"> Automation Testing with Python</label>
       <label><input type="radio" name="course" value="Automation Testing with Java"> Automation Testing with Java</label>
       <label><input type="radio" name="course" value="API Testing"> API Testing</label>
-      <button onclick="selectCourse()" id="select button">Select</button>
+      <button onclick="selectCourse()">Select</button>
     </div>
   </header>
 
   <main>
     <section id="home">
-      <h2 id="Owner Name">Hello, I'm Suresh!</h2>
+      <h2>Hello, I'm Suresh!</h2>
       <p>This is a place where all skills are trained with practical examples.</p>
 
-      <!-- CEO Section -->
       <div id="ceo-section" style="margin-top: 40px;">
         <img src="Screenshot 2025-07-01 234315.png" alt="Suresh Metta" />
         <h3 style="margin-top: 15px;">Suresh Metta</h3>
@@ -248,7 +312,7 @@
     <div class="form-container">
       <input type="text" id="loginUsername" placeholder="Username">
       <input type="password" id="loginPassword" placeholder="Password">
-      <button onclick="submitLogin()" id="Submit">Signin</button>
+      <button onclick="submitLogin()">Signin</button>
     </div>
   </div>
 
@@ -266,6 +330,23 @@
   <div id="overlay" class="overlay" onclick="closeForms()"></div>
 
   <script>
+
+    /* 🔥 Three dots dropdown */
+    function toggleThreeDotDropdown() {
+      const dd = document.getElementById("threeDotDropdown");
+      dd.style.display = dd.style.display === "block" ? "none" : "block";
+    }
+
+    function selectThreeDotCourse() {
+      const selected = document.getElementById("threeDotSelect").value;
+      if (!selected) {
+        alert("Please select a course.");
+        return;
+      }
+      alert("You selected: " + selected);
+      document.getElementById("threeDotDropdown").style.display = "none";
+    }
+
     function toggleCoursesDropdown() {
       const dropdown = document.getElementById("coursesDropdown");
       dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
